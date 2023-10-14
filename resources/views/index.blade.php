@@ -124,28 +124,57 @@
         </form>
     </div>
 </div>
-
-        <div class="row mt-3 p-5">
-        @foreach($employeeAllData as $employeeData)
-              <ul class="list-group mb-3 p-5">
-                <li class="list-group-item d-flex justify-content-between align-items-start">{{$employeeData->email}}</li>
-
-                  <div class="ms-2  me-auto"></div>
-                  <span class="badge  rounded-pill">
-                          <a href="{{route('index',['name'=>$employeeData->name,'mobile'=>$employeeData->mobile,'email'=>$employeeData->email,'id'=>$employeeData->id,'address'=>$employeeData->address,'designation'=>$employeeData->designation,'dob'=>$employeeData->dob,'salary'=>$employeeData->salary])}}"
-                             class="btn btn-warning btn-sm">Edit</a>
-                          <a href="#"
-                             onclick="event.preventDefault();document.getElementById('delete-to').submit();"
-                             class="btn btn-danger btn-sm">Delete</a>
-                            <form id="delete-to" method="POST" action="{{route('deleteEmployee',$employeeData->id)}}" method="post" class="d-none">
-                                @csrf
-                                @method('delete')
-                            </form>
-                       </span>
-              </ul>
-        @endforeach
-
- </div>
+        <div class="container mt-5">
+        <table class="table table-bordered mt-3 p-5 mb-5">
+            <div class="card p-5 mt-5 mb-5">
+                <div class="card-header">
+                    <h2> All Info Desk</h2>
+                </div>
+            <thead>
+                    <tr>
+                        <th scope="col">S-NUM</th>
+                        <th scope="col">NAME</th>
+                        <th scope="col">EMAIL</th>
+                        <th scope="col">ADDRESS</th>
+                        <th scope="col">Mobile</th>
+                        <th scope="col">Date of Birth</th>
+                        <th scope="col">Designation</th>
+                        <th scope="col">Salary</th>
+                        <th scope="col">BIN</th>
+                    </tr>
+            </thead>
+                     <tbody>
+                    @php($i=1)
+                    @foreach($employeeAllData as $employeeData)
+                        <tr>
+                            <th scope="row">{{$i++}}</th>
+                            <td>{{$employeeData->name}}</td>
+                            <td>{{$employeeData->email}}</td>
+                            <td>{{$employeeData->address}}</td>
+                            <td>{{$employeeData->mobile}}</td>
+                            <td>{{$employeeData->dob}}</td>
+                            <td>{{$employeeData->designation}}</td>
+                            <td>{{$employeeData->salary}}</td>
+                            <td>
+                           <span class="badge  rounded-pill">
+                                  <a href="{{route('index',['name'=>$employeeData->name,'mobile'=>$employeeData->mobile,'email'=>$employeeData->email,'id'=>$employeeData->id,'address'=>$employeeData->address,'designation'=>$employeeData->designation,'dob'=>$employeeData->dob,'salary'=>$employeeData->salary])}}"
+                                     class="btn btn-warning btn-sm">Edit</a>
+                                  <a href="#"
+                                     onclick="event.preventDefault();document.getElementById('delete-to').submit();"
+                                     class="btn btn-danger btn-sm">Delete</a>
+                                    <form id="delete-to" method="POST" action="{{route('deleteEmployee',$employeeData->id)}}" method="post" class="d-none">
+                                        @csrf
+                                        @method('delete')
+                                    </form>
+                           </span>
+                            </td>
+                            </tr>
+                            @endforeach
+                         </tbody>
+                    </div>
+              </table>
+        </body>
+     </div>
 </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
