@@ -30,4 +30,10 @@ class AddController extends Controller
         return redirect()->route("index")->with('success','Your info updated   successfully in Database');
     }
 
+    public function search(Request $request) :RedirectResponse
+    {
+        Add::where('name', $request->name)->search($request->only('name', 'email', 'address', 'mobile', 'dob', 'designation', 'salary'));
+        return redirect()->route("index")->with('success','This is your search result');
+    }
+
 }

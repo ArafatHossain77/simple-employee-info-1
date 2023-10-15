@@ -20,3 +20,4 @@ Route::get('/index', [\App\Http\Controllers\AddController::class, 'index'])->nam
 Route::post('/add', [\App\Http\Controllers\AddController::class, 'add'])->name('addTodo');
 Route::delete('/delete/{id}', [\App\Http\Controllers\AddController::class, 'destroy'])->name('deleteEmployee');
 Route::put('/update/{id}', [\App\Http\Controllers\AddController::class, 'update'])->name('updateEmployee');
+Route::get('/search/{name}', [\App\Http\Controllers\AddController::class, 'search'])->name('searchInfo');

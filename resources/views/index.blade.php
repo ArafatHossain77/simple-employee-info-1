@@ -125,11 +125,10 @@
     </div>
 </div>
         <div class="container mt-5">
-        <table class="table table-bordered mt-3 p-5 mb-5">
-            <div class="card p-5 mt-5 mb-5">
                 <div class="card-header">
-                    <h2> All Info Desk</h2>
-                </div>
+                    <div class="card p-5 mt-5 mb-5">
+                    <h2> All Employee Info Desk :</h2>
+                        <table class="table table-bordered mt-3 p-5 mb-5">
             <thead>
                     <tr>
                         <th scope="col">S-NUM</th>
@@ -144,6 +143,14 @@
                     </tr>
             </thead>
                      <tbody>
+
+                     <div class="input-group mb-2 mt-2">
+                         <input type="text" value="{{request('#')}}" class="form-control" placeholder="Search employee info. . ." aria-label="Recipient's username" aria-describedby="basic-addon2">
+                         <div class="input-group-append">
+                             <span type="submit" class="btn btn-success" id="basic-addon2">Search</span>
+                         </div>
+
+
                     @php($i=1)
                     @foreach($employeeAllData as $employeeData)
                         <tr>
@@ -172,10 +179,12 @@
                             @endforeach
                          </tbody>
                     </div>
+            </div>
               </table>
-        </body>
+
      </div>
 </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
